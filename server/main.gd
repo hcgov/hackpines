@@ -29,6 +29,13 @@ func _ready() -> void:
 func _peer_connected(id: int) -> void:
 	log_("Peer %s connected" % id)
 	peers[id] = {}
+	
+	var scene: CharacterBody2D = load("res://scenes/player.tscn").instantiate()
+	scene.set_multiplayer_authority(id)
+	scene.name = str(id)
+	scene.get_node("Username").text = str(id)
+	
+	$MultiplayerSpawner.add_child(scene)
 
 func _peer_disconnected(id: int) -> void:
 	log_("Peer %s disconnected" % id)

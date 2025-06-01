@@ -4,3 +4,7 @@
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_nnsk1")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("uid://dx757o7sj8w52")
+spawn_path = NodePath(".")
